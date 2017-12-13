@@ -12,9 +12,6 @@ public class CompleteCameraController : MonoBehaviour
 
  //   public  Vector3 _initialRotation = new Vector3(45,45,45);
 
-   
-
-
 
     public float m_speedRotationCamera = 2.0f;
 
@@ -58,9 +55,16 @@ public class CompleteCameraController : MonoBehaviour
         m_transform.position = player.transform.position + offset;
 
         m_gaucheDroite +=   m_speedRotationCamera * Input.GetAxis("Mouse X");
+        m_transform.RotateAround(player.transform.position, Vector3.up, m_gaucheDroite*Time.deltaTime);
 
-        m_transform.rotation = Quaternion.Euler(new Vector3(0.0f, m_gaucheDroite, 0.0f));
-        player.transform.Rotate(m_transform.eulerAngles);
+
+        //Vector3 m_autourAxeY = new Vector3(0.0f, m_gaucheDroite, 0.0f);
+        //m_transform.LookAt(player.transform);???
+    
+       
+        //= Quaternion.Euler(new Vector3(0.0f, m_gaucheDroite, 0.0f));
+       
+        // player.transform.Rotate(m_transform.eulerAngles);//*/
 
         //Difference entre properties et method, dans des propriétés y a des get;set
         //On ne sait pas ce qu'il y a dedans mais je fais confiance et j'ai le resultat
