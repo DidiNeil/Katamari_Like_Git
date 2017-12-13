@@ -8,7 +8,8 @@ public class CompleteCameraController : MonoBehaviour
     #region Public Members
 
     public GameObject player;       //Public variable to store a reference to the player game object
-
+    public float distance=10;
+    public float height=4;
 
  //   public  Vector3 _initialRotation = new Vector3(45,45,45);
 
@@ -52,18 +53,24 @@ public class CompleteCameraController : MonoBehaviour
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         
-        m_transform.position = player.transform.position + offset;
 
         m_gaucheDroite +=   m_speedRotationCamera * Input.GetAxis("Mouse X");
-        m_transform.RotateAround(player.transform.position, Vector3.up, m_gaucheDroite*Time.deltaTime);
+        //m_transform.RotateAround(player.transform.position, Vector3.up, m_gaucheDroite*Time.deltaTime);
 
+        m_transform.rotation = Quaternion.Euler( new Vector3(0, m_gaucheDroite, 0));
+        m_transform.position = player.transform.position;
+        m_transform.position -= m_transform.forward *distance ;
+        Vector3 pos = m_transform.position;
+        pos.y = m_transform.position.y + height;
+        m_transform.position = pos;
+        m_transform.LookAt(player.transform);
 
         //Vector3 m_autourAxeY = new Vector3(0.0f, m_gaucheDroite, 0.0f);
         //m_transform.LookAt(player.transform);???
-    
-       
+
+
         //= Quaternion.Euler(new Vector3(0.0f, m_gaucheDroite, 0.0f));
-       
+
         // player.transform.Rotate(m_transform.eulerAngles);//*/
 
         //Difference entre properties et method, dans des propriétés y a des get;set
@@ -80,11 +87,11 @@ public class CompleteCameraController : MonoBehaviour
 
     #endregion
 
-        #region Tools Debug and Utility
+    #region Tools Debug and Utility
 
-        #endregion
+    #endregion
 
-        #region Private and Protected Members
+    #region Private and Protected Members
 
     private Vector3 offset;         //Private variable to store the offset distance between the player and camera
     private Transform m_transform;

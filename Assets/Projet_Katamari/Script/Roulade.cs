@@ -8,6 +8,7 @@ public class Roulade : MonoBehaviour
     #region Public Members
 
     public float _speed;
+    public ForceMode _forceType = ForceMode.VelocityChange;
 
     #endregion
 
@@ -42,7 +43,18 @@ public class Roulade : MonoBehaviour
 
         Vector3 _movement = new Vector3(_moveHorizontal, 0.0f, _moveVertical);
 
-        m_rigidbody.AddForce(_movement, ForceMode.VelocityChange);
+        Transform maCamera = Camera.main.transform;
+
+
+        //  Quaternion.Lerp()
+        
+        Vector3 angle90 = new Vector3(0,0,0);
+        Vector3 newDireciton = Quaternion.Euler(angle90) * maCamera.forward;
+
+
+
+        m_rigidbody.AddForce(newDireciton * Time.deltaTime*_speed, _forceType);
+        m_rigidbody.AddForce(_movement);
         //m_rigidbody.AddRelativeForce(_movement*_speed);
     }
 
