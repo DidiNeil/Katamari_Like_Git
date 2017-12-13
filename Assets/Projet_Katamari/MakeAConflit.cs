@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MakeAConflit : MonoBehaviour {
 
-    //Eloi
+    //Eloi Valente_François
     #region Public Members
 
     public int m_myFirstInt;//les variables public se mettent en haut
