@@ -1,11 +1,12 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MakeAConflit : MonoBehaviour {
 
-    //Eloi
+    //Eloi f
+	//François
     #region Public Members
 
     public int m_myFirstInt;//les variables public se mettent en haut
