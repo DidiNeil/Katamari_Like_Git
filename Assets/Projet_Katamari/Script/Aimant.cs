@@ -74,7 +74,7 @@ public class Aimant : MonoBehaviour
     public static void MakeItGlue(GameObject target, int score =5) {
 
         Aimant createdscript= target.AddComponent<Aimant>();
-        RemoveColliders(target);
+       
         createdscript.SetParams(target.transform, score);
     }
 
@@ -83,9 +83,10 @@ public class Aimant : MonoBehaviour
     {
             Destroy(target.transform.GetComponent<Rigidbody>());
             //Supprimer le rigidbody
-            Destroy(target.transform.GetComponent<BoxCollider>());
+            target.transform.GetComponent<BoxCollider>().isTrigger = true;
+            //Destroy(target.transform.GetComponent<BoxCollider>());
             //Supprimer les colliders
-        
+
 
         //target.GetComponents<Collider>();
         //target.GetComponentsInChildren<Collider>();

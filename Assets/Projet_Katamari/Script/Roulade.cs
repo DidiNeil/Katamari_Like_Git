@@ -55,17 +55,21 @@ public class Roulade : MonoBehaviour
 
         m_rigidbody.AddForce(newDireciton * Time.deltaTime*_speed, _forceType);
         m_rigidbody.AddForce(_movement);
+
+       // m_rigidbody.AddTorque(newDireciton);
+
+        Debug.DrawLine(m_transform.position- newDireciton * 3f, m_transform.position + newDireciton*3f, Color.red);
         //m_rigidbody.AddRelativeForce(_movement*_speed);
     }
 
 
-    void OnTriggerEnter(Collider other)//à faire avec des layerMasks??
-    {
-        if (other.gameObject.CompareTag("Pick Up"))//à changer
-        {
-            other.gameObject.SetActive(false);
-        }
-    }
+    //void OnTriggerEnter(Collider other)//à faire avec des layerMasks??
+    //{
+       // if (other.gameObject.CompareTag("Pick Up"))//à changer
+        //{
+        //    other.gameObject.SetActive(false);
+       // }
+    //}
 
     #endregion
 
