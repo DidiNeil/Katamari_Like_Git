@@ -8,7 +8,7 @@ public class Gauche_Droit : MonoBehaviour
     #region Public Members
 
     public float sensibilite = 1;
-
+   
 	#endregion
 
 	#region Public void
@@ -21,6 +21,7 @@ public class Gauche_Droit : MonoBehaviour
 	{
         float gauche_droite = Input.GetAxisRaw("Horizontal");
         Vector3 move = new Vector3(gauche_droite*sensibilite, 0.0f, 0.0f);
+
         Quaternion rotation_de_Direction = Quaternion.Euler(0,transform.rotation.y , 0);
         Quaternion rotation_de_sphere = Quaternion.Euler(0,GetComponentInChildren<Transform>().rotation.y , 0) ;
 

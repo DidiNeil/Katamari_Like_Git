@@ -48,13 +48,14 @@ public class Roulade : MonoBehaviour
 
         //  Quaternion.Lerp()
         
-        Vector3 angle90 = new Vector3(0,0,0);
+        Vector3 angle90 = new Vector3(0,_moveHorizontal*90,0);
         Vector3 newDireciton = Quaternion.Euler(angle90) * maCamera.forward;
 
 
 
         m_rigidbody.AddForce(newDireciton * Time.deltaTime*_speed, _forceType);
         m_rigidbody.AddForce(_movement);
+
 
        // m_rigidbody.AddTorque(newDireciton);
 
