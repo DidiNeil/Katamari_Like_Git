@@ -49,7 +49,8 @@ public class Aimant : MonoBehaviour
             GameObject.Find("Score").GetComponent<GestionScore>().Score++;
             cube1.transform.parent = collision.transform;
             RemoveColliders(cube1.gameObject);
-            
+            GameObject.Find("Sphere").GetComponent<ScalePlayer>().playerScale();
+
 
             //cube1.transform.GetComponent<BoxCollider>().isTrigger = true;
 

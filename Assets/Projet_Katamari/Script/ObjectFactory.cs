@@ -10,7 +10,7 @@ public class ObjectFactory : MonoBehaviour
     public Transform _where;
 
 
-    public float _timeBetweenCreatoin=2;
+    public float _timeBetweenCreatoin=1;
 
     public Vector3 centerSpawnZone;
     public Vector3 sizeSpawnZone;
