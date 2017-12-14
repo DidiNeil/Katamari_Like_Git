@@ -53,8 +53,8 @@ public class Roulade : MonoBehaviour
 
 
 
-        m_rigidbody.AddForce(newDireciton * Time.deltaTime*_speed, _forceType);
-        m_rigidbody.AddForce(_movement);
+        m_rigidbody.AddForce(newDireciton * Time.deltaTime *_speed, _forceType);
+        m_rigidbody.AddForce(maCamera.forward * Time.deltaTime *_speed, _forceType);
 
 
        // m_rigidbody.AddTorque(newDireciton);

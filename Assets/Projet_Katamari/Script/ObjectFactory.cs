@@ -8,15 +8,16 @@ public class ObjectFactory : MonoBehaviour
 
     public GameObject[] _objectToCreated;
     public Transform _where;
+
+
     public float _timeBetweenCreatoin=2;
 
     public Vector3 centerSpawnZone;
     public Vector3 sizeSpawnZone;
 
     void Start() {
-
-
         InvokeRepeating("CreateOnOfTheObject", 0, _timeBetweenCreatoin);
+
     }
 
     private void OnDrawGizmosSelected()
@@ -25,6 +26,7 @@ public class ObjectFactory : MonoBehaviour
         Gizmos.DrawCube(centerSpawnZone, sizeSpawnZone);
     }
 
+//Updated upstream
     void CreateOnOfTheObject()
     {
         Vector3 spawnZone = centerSpawnZone + new Vector3(Random.Range(-sizeSpawnZone.x * 0.5f, sizeSpawnZone.x * 0.5f), 10, Random.Range(-sizeSpawnZone.z * 0.5f, sizeSpawnZone.z * 0.5f));
@@ -33,23 +35,19 @@ public class ObjectFactory : MonoBehaviour
         Aimant.MakeItGlue(created);
     }
 
-	#region Public Members
+    #region Public Members
 
-	// Les publics en début de code : car un autre dev en a besoin
+    // Les publics en début de code : car un autre dev en a besoin
 
-	#endregion
+    #endregion
 
-	#region Public void
+    #region Public void
 
-	#endregion
+    #endregion
 
-	#region System
+    #region System
 
-	
-    void Update () 
-	{
-        
-    }
+
 
     #endregion
 
