@@ -8,8 +8,8 @@ public class Aimant : MonoBehaviour
     #region Public Members
 
     public Transform cube1;
-    public int Score = 0;
 
+    
 
     #endregion
 
@@ -35,7 +35,7 @@ public class Aimant : MonoBehaviour
 		
 	}
     public void SetParams(Transform root, int score) {
-        this.Score = score;
+
         this.cube1 = root;
     }
 
@@ -44,13 +44,11 @@ public class Aimant : MonoBehaviour
 
         if (collision.transform.CompareTag("Player"))
         {
-            Debug.Log("Collision");
+
             cube1.transform.parent = collision.transform;
             RemoveColliders(cube1.gameObject);
 
             //cube1.transform.GetComponent<BoxCollider>().isTrigger = true;
-            Score++;
-                
 
         }
 
@@ -71,7 +69,7 @@ public class Aimant : MonoBehaviour
 
     #endregion
 
-    public static void MakeItGlue(GameObject target, int score =5) {
+    public static void MakeItGlue(GameObject target, int score = 1) {
 
         Aimant createdscript= target.AddComponent<Aimant>();
        

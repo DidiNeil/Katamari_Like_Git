@@ -60,6 +60,11 @@ public class Roulade : MonoBehaviour
 
         Debug.DrawLine(m_transform.position- newDireciton * 3f, m_transform.position + newDireciton*3f, Color.red);
         //m_rigidbody.AddRelativeForce(_movement*_speed);
+
+       //****************** //if(GameObject.Find("Cube").GetComponent<Aimant>().Score == 2)
+        //{
+          //  Debug.Log("Score  = 2 + sphere collider augmenté");
+        //}
     }
 
 
