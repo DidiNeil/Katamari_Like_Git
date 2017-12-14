@@ -33,6 +33,7 @@ public class ObjectFactory : MonoBehaviour
         GameObject obj = _objectToCreated[UnityEngine.Random.Range(0, _objectToCreated.Length - 1)];
         GameObject created = Instantiate(obj, spawnZone,Quaternion.identity);
         Aimant.MakeItGlue(created);
+        ///
     }
 
     #region Public Members

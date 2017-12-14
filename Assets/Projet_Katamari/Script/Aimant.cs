@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Aimant : MonoBehaviour
 {
     #region Public Members
 
     public Transform cube1;
+    
 
     
 
@@ -44,9 +46,10 @@ public class Aimant : MonoBehaviour
 
         if (collision.transform.CompareTag("Player"))
         {
-
+            GameObject.Find("Score").GetComponent<GestionScore>().Score++;
             cube1.transform.parent = collision.transform;
             RemoveColliders(cube1.gameObject);
+            
 
             //cube1.transform.GetComponent<BoxCollider>().isTrigger = true;
 
