@@ -10,7 +10,8 @@ public class ObjectFactory : MonoBehaviour
     public Transform _where;
     public float _timeBetweenCreatoin=2;
 
-
+    public Vector3 centerSpawnZone;
+    public Vector3 sizeSpawnZone;
 
     void Start() {
 
@@ -18,12 +19,17 @@ public class ObjectFactory : MonoBehaviour
         InvokeRepeating("CreateOnOfTheObject", 0, _timeBetweenCreatoin);
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(1f, 0f, 0.5f, 0.3f);
+        Gizmos.DrawCube(centerSpawnZone, sizeSpawnZone);
+    }
 
-
-    void CreateOnOfTheObject() {
-
+    void CreateOnOfTheObject()
+    {
+        Vector3 spawnZone = centerSpawnZone + new Vector3(Random.Range(-sizeSpawnZone.x * 0.5f, sizeSpawnZone.x * 0.5f), 10, Random.Range(-sizeSpawnZone.z * 0.5f, sizeSpawnZone.z * 0.5f));
         GameObject obj = _objectToCreated[UnityEngine.Random.Range(0, _objectToCreated.Length - 1)];
-        GameObject created = Instantiate(obj, _where);
+        GameObject created = Instantiate(obj, spawnZone,Quaternion.identity);
         Aimant.MakeItGlue(created);
     }
 
